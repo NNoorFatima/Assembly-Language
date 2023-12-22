@@ -1,0 +1,48 @@
+ PROCEDURES
+Add_1 proc
+//
+ret        ; return
+endp  ;signifies the end of procedure
+
+To call in the main procedure use call add_1
+Procedures must be made between main PROC and endmain  {in .code}
+ 
+	• Procedures with arguments
+Add_1 uses ax,bx             ;values of these registers are exactly copied
+					  ;could use variables as well and can't use immediate values
+					
+If you don’t want to use variables then use general purpose registers such as ax,bx,cx,dx
+
+MACROS
+Doesn't take alag se memory 
+Add_1 macro   ; name of the macro is add_1
+// code
+//code
+endm 
+Macro has no return statement
+Executes certain lines executes and returns to the previous instruction 
+Called in main proc
+Doesn’t require the use of word call just write the name of the macro
+
+	• Arguments with macros
+Add_1 macro a1,a2,a3    ; macros with arguments
+	Mov ax,a1
+	///code
+endmain
+
+No need to initialize and no need to mention the data type 
+Main proc
+	Add_1 2,5,x         here 2 and 5 are numbers stored in a1, a2 and the result is stored in a variable x created in data part 
+Endmain
+
+
+
+Interrupt 
+	• Getstdhandle proto, a1:dword   ;used for read/write instructions
+	• writeconsoleA proto       ;writes a character string to the console screen buffer beginning at the current cursor location 
+	• ReadconsoleA proto
+	• For writing to console send -11
+	• For reading from console -10
+	• Such as   invoke getstdhandle,-10   ;reads from console 
+	•                invoke getstdhandle,-11   ;writes 
+	
