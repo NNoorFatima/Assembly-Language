@@ -1,0 +1,46 @@
+Input output make it single digit
+
+When taken input from console(reading from console) it comes as a character so subtract from 48 
+and to write on console add 48
+
+Task 3 ALWAYS Take odd numbers; number of lines taken from user 
+
+
+
+MACROS
+
+Name_macro macro
+//code
+Endm
+
+WITH PARAMETERS
+Name_macro macro a1,a2
+//code
+Endm
+
+
+Name_proc Proc
+//code
+Ret
+Name_proc endp
+
+WITH PARAMETERS
+Name_proc Proc uses ax
+//code
+Ret
+Name_proc endp
+
+
+MAIN CODE
+Call proc_name
+; leaves the current line and goes to the procedure and executes its instructions 
+Macro_name
+;just copies that line to main and executes then for example if L1 is defined in main and in macro then it will give redefinition error
+;used only when a set of lines is repeated a number of times
+
+
+WHERE TO DEFINE MACROS AND PROCEDURES
+Procedures are defined below main while macros are defined above main --general practice 
+Procedures takes memory while macros don’t
+Can make nested macros and procedures
+ 
