@@ -1,0 +1,73 @@
+	 Logical and Arithmetic Shifts
+		○ Logical shifts fills newly created bit with a 0 and moves the bit shifted to CF 
+		○ Arithmetic Shift: the sign bit is copied and then the sifting is performed 
+		○ 1	0	1	0	0	1	1	1
+		1	1	0	1	0	0	1	1         
+		○ The shifted bit is moved to the CF, above I have performed Right shift
+		○ SHL	SHR	SAL	SAR	SHLD	SHRD
+		○ Can happen b/w reg,imm8 and mem,imm8 and mem,cl
+		○ Left shift is bitwise multiplication and right shift is division (unsigned)
+		○ SAL works in the same way as SHL
+		○ SAR copies sign and then shifts
+		○ SAR can be used to extend sign
+	 Rotation 
+		○ Bits moved around in circular form 
+		○ ROL	ROR	RCL	RCR
+		○ ROL MSB is copied to CF and the value of MSB is moved to the LSB
+		○ ROR the LSB is copied to the MSB and the value of LSB is moved to CF
+		○ RCL copies value of CF to LSB and then moves the value of MSB to CF
+		○ RCR copies the value of to MSB and then moves the value of LSB to CF
+	 SHLD AND SHRD
+		○ Shift left/right double SHLD dest,source,count
+		○ This actually shifts count time in dest and source
+		○ Can happen between reg16,reg16,cl/imm8 and mem16,reg16,cl.imm8 and same for 32 bits as well
+	 Multiplication and division instructions
+		○ The process is different for signed and unsigned.
+		○ The MUL and IMUL instructions perform unsigned and signed integer multiplication
+		○ The DIV is used for unsigned integers and IDIV performs signed integer division
+		○ MUL is used for unsigned multiply:
+			§ MUL
+				□ Multiply and 8 bit operand by the AL register =>product stored in AX
+				□ Multiply a 16 bit operand by the AX register =>product stored in DX:AX
+				□ Multiply a 32 bit operand by EAX register==>EDX:EAX
+				□ The CF/OF is set if DX or EDX is not equal to zero which lets us know that the product is larger than size of AX or EAX
+			§ IMUL
+				□ Used for signed multiplication; preserves sign of the product
+				□ Extends the MSG of the lower half of the product to the upper half
+				□ Can have one, two, three operands
+				□ IMUL reg/mem8 	AX=AL * reg/mem8
+				IMUL reg/mem16	DX:AX=AX*reg/mem16
+				IMUL reg,mem32	EDX:EAX=EAX* reg/mem32
+				□ Two operand formats(32 bit mode): stores the product in the first operand, which must be a register. The second operand(multiplier) can be a register, memory or immediate value
+				□ IMUL reg16,reg/mem16
+				□ IMUL reg16,imm8
+				□ IMUL reg16,imm16
+				□ IMUL reg32,imm8
+				□ IMUL reg32,imm32
+				□ IMUL reg16,reg/mem32
+				□ After CF/OF= 0 then the upper half of the result is the sign extension of the lower half; otherwise CF/OF is 1
+			§ DIV
+				□ Used for unsigned division 
+				□ DIV reg.mem8 ; reg/mem16 ; reg/mem32
+				□ Quotient and remainder have the same size as the divisor
+				□ Dividend	Divisor	Quotient	Remainder
+				AX	Reg/mem8	AL	AH
+				DX:AX	Reg/mem16	AX	DX
+				EDX:EAX	Reg/mem32	EAX	EDX
+			§ Signed Integer Division
+				□ CBW= used to convert byte to word extends the sign of AL into AH
+				□ CWD used to convert word to double word extends the sign of AX into DX (MOVSX DX,AX)
+				□ CDQ used to convert double word into quadword extends sign of EAX to EDX 
+			§ IDIV
+				□ Performs signed division
+				□ Before executing  8 bit division the dividend AX must be completely sign extended 
+				
+	
+				
+				
+				  
+				
+		
+		
+		
+		
