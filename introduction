@@ -1,0 +1,38 @@
+	} we use HLL such as C++
+	} switch is made from transistors that's why only two options on and off 1 and 0 
+	} machine language uses binary 
+	} HLL-> assembly language ->machine language -> given to hardware
+	} HLL to assembly code is done by compiler 
+	} assembly code to object code is done by assembler 
+	} object code to machine code is done by linker and then goes to hardware
+	} Registers are used few are general purpose and few have special purpose.
+	} Each register is 16 bit that is 2 bytes [general purpose registers]
+	} Segment register: memory is divided in different segments eg some memory is save for only variables 
+	} Control registers: such as flags which are 1 bit.
+	} Data registers: there are total four of such registers names as AX, BX, CX, DX. Each is 2 bytes. These are also known as general purpose registers.
+	} MOV == move syntax: MOV destination register, value 
+	} Each register for eg AX can be further divided into AL and AH. Each has 8 bit separately.
+	} It is comparatively easier to access data from register than memory.
+	} MOV= move, ADD= add, CMP= compare
+
+
+	Advantages of HLL
+	} Program development is faster 
+	} Maintenance is easier 
+	} Programs are portable 
+	
+	Assembly language has one to one correspondence to machine language
+	
+	Advantages of Assembly Language
+	} Accessibility to system hardware 
+		○ Useful for implementing system software 
+		○ Useful for small embedded system application 
+	} Space and time efficiency 
+		○ Tuning program performance 
+		○ Writing compact code
+		
+	
+	
+
+MASM 
+
